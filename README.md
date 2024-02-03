@@ -1,3 +1,2 @@
 # portfolio
-Venkatesh Suravarapu
-Chatgpt generates the above code and i am just here to update my further projects here in this basic portfolio 
+Chatgpt generates the above code and I am just here to update my further projects in this basic portfolio 
