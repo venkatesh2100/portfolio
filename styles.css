@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  text-align: center;
+  padding: 50px;
+  background-color: #333;
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+}
+
+section {
+  padding: 40px;
+}
+
+section h2 {
+  color: #333;
+}
+
+project {
+  margin-bottom: 30px;
+}
+
+project h3 {
+  color: #333;
+}
+
+project p {
+  color: #666;
+}
+
+project a {
+  display: block;
+  margin-top: 10px;
+  color: #333;
+  text-decoration: none;
+}
+
+project a:hover {
+  color: #555;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
