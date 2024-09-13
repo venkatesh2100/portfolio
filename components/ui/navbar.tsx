@@ -12,7 +12,7 @@ export default function Navbar() {
 
   return (
     <nav className="w-full border-b ">
-      <div className="flex items-center justify-between p-4 md:flex-wrap md:mx-60">
+      <div className="flex items-center justify-between   md:flex-wrap md:mx-60">
         {/* Logo */}
         <div className="flex items-center">
           {/* <svg
@@ -29,10 +29,11 @@ export default function Navbar() {
               d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
             />
           </svg> */}
-        <Image alt="profile pic " src="/cybe.png" width={80}  height={40} className="p-3 rounded-full"></Image>
+        <Image alt="profile pic" src="/profile.jpeg" width={80}  height={40} className="p-4  rounded-full hover:animate-pulse "></Image>
 
-          <a className="text-2xl font-semibold font-serif uppercase ml-2" href="#">
+          <a className="text-3xl uppercase focus:ring-4   py-2 flex title-font  hover:bg-gray-100 font-semibold   ml-2" href="/">
             Venky
+            <span className="text-blue-500">.</span>
           </a>
         </div>
 
@@ -50,7 +51,7 @@ export default function Navbar() {
             Blogs
           </a>
           <a
-            href="#projects"
+            href="/projects"
             className="hover:text-blue-500 transition-colors duration-200"
           >
             Projects
@@ -83,25 +84,25 @@ export default function Navbar() {
       >
         <div className="flex flex-col space-y-4">
           <a
-            href="#blogs"
+            href="/blogs"
             className="text-lg font-bold hover:text-green-500 transition-colors duration-200"
           >
             Blogs
           </a>
           <a
-            href="#projects"
+            href="/projects"
             className="text-lg font-bold hover:text-blue-500 transition-colors duration-200"
           >
             Projects
           </a>
           <a
-            href="#aboutme"
+            href="/aboutme"
             className="text-lg font-bold hover:text-red-400 transition-colors duration-200"
           >
             About Me
           </a>
           <a
-            href="#resume"
+            href="/resume"
             className="text-lg font-bold hover:text-green-400 transition-colors duration-200"
           >
             Resume

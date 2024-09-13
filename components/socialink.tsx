@@ -1,26 +1,12 @@
-import React from "react";
-import Image from "next/image";
-export const HomeIntro = () => {
-  return (
-    <div className="border-black ">
-      <section className="md:flex md:items-center md:space-x-8 ">
-        <div className="p-10">
-          <h1 className="font-meduim text-3xl md:text-5xl mb-4 text-green-900">
-           Hi, I'm
-            <span className="text-blue-500">   Venkatesh</span>
-          </h1>
-          <div className="col-span-3 max-w-2xl">
-            <p className="px-0  text-lg text-left text-gray-600 md:leading-8 mb-4">
-              I'm a software engineer from India, specializing in JavaScript,
-              TypeScript, React, and 69 other technologies. Passionate about
-              serverless architectures and full-stack development, I’m always
-              exploring new technologies. I do fullstack and a bit of everything
-              ❤️ All About living life at its best.
-            </p>
-            
-            <div className="mb-4">
-              <div className="inline-flex ">
-                <a href="">
+
+export default function SocialLink(){
+  return(
+    <div className="inline-flex mx-auto gap-0 justify-center sm:t-0">
+                <a
+                  href="https://x.com/venky_officials"
+                  target="_blank"
+                  className="hover:animate-bounce rounded-full p-1"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -46,7 +32,11 @@ export const HomeIntro = () => {
                     ></path>
                   </svg>
                 </a>
-                <a href="">
+                <a
+                  href="https://www.linkedin.com/in/venkatesh2100/"
+                  target="_blank"
+                  className="hover:animate-bounce rounded-full p-1"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -73,7 +63,11 @@ export const HomeIntro = () => {
                     ></path>
                   </svg>
                 </a>
-                <a href="">
+                <a
+                  href="https://github.com/venkatesh2100/"
+                  target="_balnk"
+                  className="hover:animate-bounce rounded-full p-1"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -111,7 +105,11 @@ export const HomeIntro = () => {
                     ></path>
                   </svg>
                 </a>
-                <a href="">
+                <a
+                  href="https://www.youtube.com/@codewithvenky?sub_confirmation=1"
+                  target="_blank"
+                  className="animate-bounce rounded-full p-1"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     x="0px"
@@ -128,26 +126,5 @@ export const HomeIntro = () => {
                   </svg>
                 </a>
               </div>
-            </div>
-            <div className="space-x-0 flex justify-between sm:space-x-2 sm:space-y-0 ">
-              <button className="border focus:ring-4 hover:bg-blue-500 hover:text-white font-bold border-blue-400 p-4 rounded-md w-1/2 text-bold">
-                Learn about me
-              </button>
-              <button className=" border border-blue-400 p-4 rounded-md w-1/2 font-bold bg-green-600">
-                check out my blog
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <Image
-          alt="profile pic "
-          src="/luffy.jpeg"
-          width={300}
-          height={50}
-          className="p-4 mx-auto  border-black  rounded-md shadow-xl"
-        ></Image>
-      </section>
-    </div>
-  );
-};
+  )
+}
