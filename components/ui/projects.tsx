@@ -1,3 +1,5 @@
+import Project from "../projectsprop";
+
 export const ProjectComponent = () => {
   return (
     <div className="border-black">
@@ -14,6 +16,7 @@ export const ProjectComponent = () => {
           </a>
         </div>
       </section>
+      <Project/>
     </div>
   );
 };
