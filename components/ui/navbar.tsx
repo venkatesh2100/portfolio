@@ -63,7 +63,7 @@ export default function Navbar() {
             About Me
           </a>
           <a
-            href="#resume"
+            href="/resume"
             className="hover:text-green-400 transition-colors duration-200"
           >
             Resume
