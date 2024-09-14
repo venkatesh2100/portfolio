@@ -3,26 +3,36 @@ import { PrismaClient } from "@prisma/client";
 import { withAccelerate } from "@prisma/extension-accelerate";
 
 // Initialize Prisma Client
-const prisma = new PrismaClient().$extends(withAccelerate());
+const prisma = new PrismaClient({
+  datasources: {
+    db: {
+      url: process.env.DATABASE_URL,
+    },
+  },
+}).$extends(withAccelerate());
 
-// GET request handler to fetch a blog by ID
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  try {
 
-    const blogId = params.id;
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
+  const blogId = params?.id;
 
-    // Fetch the blog post by id
-    const blog = await prisma.blog.findUnique({
-      where: { id: blogId },
-    });
-
-    if (!blog) {
-      return NextResponse.json({ error: "Blog not found" }, { status: 404 });
-    }
-
-    return NextResponse.json(blog, { status: 200 });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+  if (!blogId) {
+    return NextResponse.json({
+      error: "Blog ID is missing.",
+    }, { status: 400 });
   }
+
+  const blog=await prisma.blog.findUnique({
+    where:{
+      id:blogId
+    }
+  })
+
+  return NextResponse.json({
+    message: `Received Blog ID: ${
+    blogId}`,blog
+
+  });
 }

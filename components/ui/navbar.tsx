@@ -45,7 +45,7 @@ export default function Navbar() {
         {/* Menu links for larger screens */}
         <div className="hidden sm:flex space-x-8 text-lg font-bold">
           <a
-            href="#blogs"
+            href="/blogs"
             className="hover:text-green-500 transition-colors duration-200"
           >
             Blogs
