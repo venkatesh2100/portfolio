@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import SocialLink from "../socialink";
+import { SocialLink } from "../socialink";
 export const HomeIntro = () => {
   return (
     <div className="border-black">

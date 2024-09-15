@@ -1,14 +1,15 @@
 "use client";
 
-const SearchBar = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-  };
+
+const SearchBar: React.FC = () => {
+  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  //   e.preventDefault();
+  //   // Add your form submission logic here
+  // };
 
   return (
     <div className="max-w-md mx-auto">
-      <form className="relative" onSubmit={handleSubmit}>
+      <form className="relative"  >
         <label htmlFor="default-search" className="sr-only">
           Search
         </label>

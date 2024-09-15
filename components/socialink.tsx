@@ -1,5 +1,5 @@
 
-export default function SocialLink(){
+export const SocialLink=()=>{
   return(
     <div className="inline-flex mx-auto gap-0 justify-center sm:t-0">
                 <a

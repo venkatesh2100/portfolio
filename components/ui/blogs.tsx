@@ -3,10 +3,23 @@ import React, { useEffect, useState } from "react";
 import BlogCard from "../blogcard";
 import SearchBar from "../searchbar";
 
+// Extend the Blog interface to match your API's response structure
+interface Blog {
+  id: string;
+  title: string;
+  description: string;
+  author: string;
+  category: string;
+  views: number;
+  coment: number;
+  createdAt: Date;
+  imageUrl: string;
+}
+
 const BlogComponent = () => {
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null); 
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -15,10 +28,10 @@ const BlogComponent = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
         }
-        const data = await response.json();
+        const data: Blog[] = await response.json(); // Assuming your API returns an array of Blog objects
         setBlogs(data);
-      } catch (e) {
-        setError(e.message);
+      } catch (e: any) {
+        setError(e.message); // Capture the error
       } finally {
         setLoading(false);
       }
@@ -41,7 +54,7 @@ const BlogComponent = () => {
         Some writeup related to my space
       </div>
       <SearchBar />
-      <div className="w-full md:flex" >
+      <div className="w-full md:flex">
         {blogs.length > 0 ? (
           blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
         ) : (

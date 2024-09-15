@@ -1,10 +1,27 @@
-// "use client"
+"use client"
 import Image from "next/image";
-const BlogCard = ({ blog }) => {
+interface Blog {
+  id: string; // or number
+  title: string;
+  description: string;
+  author: string;
+  category: string;
+  views: number;
+  coment: number; // or 'comment' if it's a typo
+  createdAt: Date;
+  imageUrl: string;
+}
+
+// Define the props type
+interface BlogCardProps {
+  blog: Blog;
+}
+
+// The BlogCard component
+const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   const {
     title,
     description,
-    author,
     category,
     views,
     coment,
