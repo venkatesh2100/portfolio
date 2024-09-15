@@ -41,7 +41,7 @@ const BlogComponent = () => {
         Some writeup related to my space
       </div>
       <SearchBar />
-      <div className="w-full max-w-4xl md:flex">
+      <div className="w-full md:flex" >
         {blogs.length > 0 ? (
           blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
         ) : (

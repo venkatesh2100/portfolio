@@ -75,6 +75,6 @@ export async function POST(
 
   return NextResponse.json({
     msg: "sucessfully updated",
-    blog
+    blo
   });
 }
