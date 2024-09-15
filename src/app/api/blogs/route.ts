@@ -24,16 +24,18 @@ export async function POST(req: NextRequest) {
         content: body.content,
         author: body.author,
         description: body.description || '',
-        coment: body.coment || '',
+        coment: body.coment || 0,
         category: body.category || '',
         views: body.views || 0,
         published: body.published || false,
+        imageUrl: body.imageUrl || '',
       },
     });
+    console.log(blog)
     return NextResponse.json({ id: blog.id }, { status: 200 });
   } catch (error) {
     console.error(error);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({ error: error }, { status: 500 });
   }
 }
 
@@ -50,7 +52,8 @@ export async function GET() {
         category: true,
         views: true,
         coment:true,
-        createdAt: true, // Assuming you're using `createdAt` for the date field
+        createdAt: true,
+        imageUrl:true,
       },
     });
 

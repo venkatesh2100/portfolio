@@ -20,8 +20,9 @@ model Blog {
   title       String
   description String
   content     String
+  imageUrl    String?
   views       Int
-  coment      String
+  coment      Int
   category    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
