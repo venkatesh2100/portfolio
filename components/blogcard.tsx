@@ -31,17 +31,15 @@ const BlogCard = ({ blog }) => {
           {/* <Image src="/profile.jpeg" width={30} height={30} className="rounded-full mr-2 " alt={"profile"}/> */}
           <h2 className="text-2xl font-bold text-gray-900 ">{title}</h2>
         </div>
-
+        <div className="flex  text-gray-500 text-sm items-center ">
+          <Image src="/cal.svg" width={20} height={10} alt="clap" className="mr-2"/>
+          <p className=" mr-2">{new Date(createdAt).toLocaleDateString()}</p>
+        <Image src="/clap.svg" width={20} height={10} alt="clap"/>
+          <p className="  ">{views}</p>
+          <p className="  ">{coment}</p>
+        </div>
         <p className="text-gray-700 mt-2">{description}</p>
-        <div className="flex items-center justify-between mt-4">
-          <p className="text-sm text-gray-500 ">
-            By {author} - {new Date(createdAt).toLocaleDateString()}
-          </p>
-        </div>
-        <div className="flex items-center justify-between mt-4">
-          <p className="text-sm text-gray-500 ">Views: {views}</p>
-          <p className="text-sm text-gray-500 ">Comments: {coment}</p>
-        </div>
+        <div className="flex items-center justify-between mt-4"></div>
       </div>
     </div>
   );
