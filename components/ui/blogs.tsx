@@ -14,7 +14,7 @@ interface Blog {
   coment: number;
   createdAt: Date;
   imageUrl: string;
-  
+
 }
 
 const BlogComponent = () => {
@@ -25,7 +25,7 @@ const BlogComponent = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch("http://localhost:3000/api/blogs");
+        const response = await fetch("https://venkatesh2100.vercel.app/api/blogs");
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
         }
