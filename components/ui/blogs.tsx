@@ -14,12 +14,13 @@ interface Blog {
   coment: number;
   createdAt: Date;
   imageUrl: string;
+  
 }
 
 const BlogComponent = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null); 
+  const [error, setError] = useState<string | null>(null); // Error state
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -28,10 +29,14 @@ const BlogComponent = () => {
         if (!response.ok) {
           throw new Error("Failed to fetch blogs");
         }
-        const data: Blog[] = await response.json(); // Assuming your API returns an array of Blog objects
+        const data: Blog[] = await response.json();
         setBlogs(data);
-      } catch (e: any) {
-        setError(e.message); // Capture the error
+      } catch (e) {
+        if (e instanceof Error) {
+          setError(e.message); // Handle error correctly
+        } else {
+          setError("An unknown error occurred");
+        }
       } finally {
         setLoading(false);
       }
