@@ -1,7 +1,8 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import { PrismaClient } from "@prisma/client";
+const client = new PrismaClient();
 import BlogCard from "../blogcard";
 import SearchBar from "../searchbar";
+import { NextResponse } from "next/server";
 
 // Extend the Blog interface to match your API's response structure
 interface Blog {
@@ -14,44 +15,34 @@ interface Blog {
   coment: number;
   createdAt: Date;
   imageUrl: string;
-
 }
 
-const BlogComponent = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null); // Error state
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const response = await fetch("https://venkatesh2100.vercel.app/api/blogs");
-        if (!response.ok) {
-          throw new Error("Failed to fetch blogs");
-        }
-        const data: Blog[] = await response.json();
-        setBlogs(data);
-      } catch (e) {
-        if (e instanceof Error) {
-          setError(e.message); // Handle error correctly
-        } else {
-          setError("An unknown error occurred");
-        }
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  if (loading) {
-    return <div className="text-center">Loading...</div>;
+export async function findBlogs() {
+  try {
+    const blogs = await client.blog.findMany({
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        author: true,
+        category: true,
+        views: true,
+        coment:true,
+        createdAt: true,
+        imageUrl:true,
+      },
+    });
+    return NextResponse.json(blogs);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "Internal Server Error" });
   }
+}
 
-  if (error) {
-    return <div className="text-center">Error: {error}</div>;
-  }
+const BlogComponent = async () => {
+  const response = await findBlogs();
+  const blogs = await response.json();
 
   return (
     <div className="flex flex-col items-center md:items-center mx-auto">
@@ -61,7 +52,7 @@ const BlogComponent = () => {
       <SearchBar />
       <div className="w-full md:flex">
         {blogs.length > 0 ? (
-          blogs.map((blog) => <BlogCard key={blog.id} blog={blog} />)
+          blogs.map((blog: Blog) => <BlogCard key={blog.id} blog={blog} />)
         ) : (
           <div className="text-center">No blogs available</div>
         )}

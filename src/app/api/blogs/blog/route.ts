@@ -18,18 +18,10 @@ export async function GET(
 ) {
   const blogId = params?.id;
 
-  // Validate that the blog ID is a valid UUID
-  if (!blogId || !isUUID(blogId)) {
-    return NextResponse.json(
-      {
-        error: "Invalid or missing Blog ID.",
-      },
-      { status: 400 }
-    );
-  }
+ 
 
   try {
-    const blog = await prisma.blog.findUnique({
+    const blog = await prisma.blog.findFirst({
       where: {
         id: blogId,
       },
