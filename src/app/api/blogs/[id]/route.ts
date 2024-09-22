@@ -74,15 +74,15 @@ export async function POST(
     const body = await req.json();
 
     // Validate that the required fields are present
-    const requiredFields = ["title", "content", "author", "description", "category", "views", "published", "coment", "imageUrl"];
-    for (const field of requiredFields) {
-      if (!body[field]) {
-        return NextResponse.json(
-          { error: `Missing field: ${field}` },
-          { status: 400 }
-        );
-      }
-    }
+    // const requiredFields = ["title", "content", "author", "description", "category", "views", "published", "coment", "imageUrl"];
+    // for (const field of requiredFields) {
+    //   if (!body[field]) {
+    //     return NextResponse.json(
+    //       { error: `Missing field: ${field}` },
+    //       { status: 400 }
+    //     );
+    //   }
+    // }
 
     const updatedBlog = await prisma.blog.update({
       where: {
