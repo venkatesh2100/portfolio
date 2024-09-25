@@ -4,7 +4,7 @@ import { toast, Toaster } from 'sonner';
 
 export const HeroBtn = () => {
   const handleClick = () => {
-    navigator.clipboard.writeText('npx devsargam');
+    navigator.clipboard.writeText('npx venkatesh2100');
     toast.info('Text has been copied');
   };
 
