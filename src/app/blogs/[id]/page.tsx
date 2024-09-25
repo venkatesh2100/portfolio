@@ -15,7 +15,7 @@ const BlogPage = async ({ params }: { params: { id: string } }) => {
     return <div>Blog not found</div>;
   }
 
-  const imageUrl = blog.imageUrl; // Fallback to a default image if imageUrl is empty
+  const imageUrl = blog.imageUrl?blog.imageUrl:'/luffy.jpeg'; // Fallback to a default image if imageUrl is empty
   return (
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
