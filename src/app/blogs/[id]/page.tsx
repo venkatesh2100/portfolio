@@ -1,17 +1,10 @@
+
 import { GetServerSideProps } from "next";
 import { PrismaClient } from "@prisma/client";
 import { useRouter } from "next/router";
 import Image from "next/image";
 
 const prisma = new PrismaClient();
-
-export async function generateMetadata({ params }: { params: { id: string } }) {
-  const blog = await prisma.blog.findUnique({
-    where: { id: params.id },
-  });
-  if (!blog) throw new Error("Blog not found");
-  return { title: blog.title };
-}
 
 const BlogPage = async ({ params }: { params: { id: string } }) => {
   const blog = await prisma.blog.findUnique({
@@ -22,8 +15,7 @@ const BlogPage = async ({ params }: { params: { id: string } }) => {
     return <div>Blog not found</div>;
   }
 
-  const imageUrl = blog.imageUrl ? blog.imageUrl : '/luffy.jpeg '; // Fallback to a default image if imageUrl is empty
-
+  const imageUrl = blog.imageUrl; // Fallback to a default image if imageUrl is empty
   return (
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
