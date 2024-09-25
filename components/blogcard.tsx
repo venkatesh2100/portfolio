@@ -1,3 +1,4 @@
+"use client"
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
@@ -24,6 +25,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ blog }) => {
   const handleClick = () => {
     router.push(`/blogs/${id}`);
   };
+
+  console.log(imageUrl)
 
   return (
     <div onClick={handleClick} className="max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden mb-6 cursor-pointer">
